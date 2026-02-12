@@ -1,11 +1,5 @@
 package org.jboss.pnc.quarkus.client.auth.runtime;
 
-import io.quarkus.oidc.client.OidcClient;
-import io.quarkus.oidc.client.Tokens;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -13,6 +7,14 @@ import java.nio.file.Path;
 import java.time.Duration;
 import java.util.Base64;
 import java.util.Optional;
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
+import io.quarkus.oidc.client.OidcClient;
+import io.quarkus.oidc.client.Tokens;
 
 /**
  * Easily select the client authentication type (LDAP, OIDC [default]) that will be used to send authenticated requests
@@ -47,7 +49,8 @@ public class PNCClientAuthImpl implements PNCClientAuth {
         try {
             return switch (clientAuthType) {
                 case OIDC -> oidcClient.getTokens().await().atMost(Duration.ofMinutes(5)).getAccessToken();
-                case LDAP -> Base64.getEncoder().encodeToString(getLDAPCredentialsFileContent().getBytes(StandardCharsets.UTF_8));
+                case LDAP -> Base64.getEncoder()
+                        .encodeToString(getLDAPCredentialsFileContent().getBytes(StandardCharsets.UTF_8));
             };
         } catch (IOException e) {
             throw new RuntimeException(e);
