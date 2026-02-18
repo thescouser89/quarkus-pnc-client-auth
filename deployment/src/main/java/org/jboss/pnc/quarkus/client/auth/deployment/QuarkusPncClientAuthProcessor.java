@@ -1,11 +1,12 @@
 package org.jboss.pnc.quarkus.client.auth.deployment;
 
+import org.jboss.pnc.quarkus.client.auth.runtime.PNCClientAuth;
+import org.jboss.pnc.quarkus.client.auth.runtime.PNCClientAuthImpl;
+
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.arc.processor.DotNames;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.FeatureBuildItem;
-import org.jboss.pnc.quarkus.client.auth.runtime.PNCClientAuth;
-import org.jboss.pnc.quarkus.client.auth.runtime.PNCClientAuthImpl;
 
 class QuarkusPncClientAuthProcessor {
 
