@@ -87,7 +87,7 @@ public class PNCClientAuthImpl implements PNCClientAuth {
     private String getLDAPCredentialsFileContent() throws IOException {
 
         if (ldapCredentialsPath.isEmpty()) {
-            throw new RuntimeException("client_auth.ldap_credentials.path is empty!");
+            throw new RuntimeException("pnc_client_auth.ldap_credentials.path is empty!");
         }
 
         return Files.readString(Path.of(ldapCredentialsPath.get())).strip();
