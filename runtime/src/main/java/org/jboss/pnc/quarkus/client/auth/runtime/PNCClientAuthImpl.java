@@ -45,6 +45,11 @@ public class PNCClientAuthImpl implements PNCClientAuth {
     Optional<String> ldapCredentialsPath;
 
     @Override
+    public ClientAuthType getConfiguredType() {
+        return clientAuthType;
+    }
+
+    @Override
     public String getAuthToken() {
         try {
             return switch (clientAuthType) {

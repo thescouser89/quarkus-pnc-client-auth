@@ -67,6 +67,11 @@ You can mock `PNCClientAuth` in your Quarkus app for testing:
 @ApplicationScoped
 public class PNCClientAuthMock implements PNCClientAuth {
     @Override
+    public ClientAuthType getConfiguredType() {
+        return ClientAuthType.LDAP;
+    }
+
+    @Override
     public String getAuthToken() {
         return "1234";
     }

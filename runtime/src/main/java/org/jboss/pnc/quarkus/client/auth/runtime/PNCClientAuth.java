@@ -14,29 +14,34 @@ public interface PNCClientAuth {
     /**
      * The current client authentication schemes supported
      */
-    public static enum ClientAuthType {
+    enum ClientAuthType {
         OIDC, LDAP
     }
 
     /**
      * DTO for the LDAP username and password
-     * 
+     *
      * @param username username
      * @param password password
      */
-    public static record LDAPCredentials(String username, String password) {
+    record LDAPCredentials(String username, String password) {
     }
 
     /**
+     * Return the configured protocol
+     */
+    ClientAuthType getConfiguredType();
+
+    /**
      * Only return the HTTP auth scheme token. Example: Authorization {Scheme} TOKEN
-     * 
+     *
      * @return auth scheme token
      */
     String getAuthToken();
 
     /**
      * Return the full value for the HTTP Authorization header. e.g Basic TOKEN
-     * 
+     *
      * @return full HTTP Authorization header value
      */
     String getHttpAuthorizationHeaderValue();
