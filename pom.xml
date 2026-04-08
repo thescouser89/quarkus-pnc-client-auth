@@ -22,7 +22,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.pnc</groupId>
   <artifactId>quarkus-pnc-client-auth-parent</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Quarkus Pnc Client Auth - Parent</name>
 
@@ -58,7 +58,7 @@
   <scm>
     <connection>scm:git:https://github.com/project-ncl/quarkus-pnc-client-auth.git</connection>
     <developerConnection>scm:git:git@github.com:project-ncl/quarkus-pnc-client-auth.git</developerConnection>
-    <tag>1.0.0</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/project-ncl/quarkus-pnc-client-auth/</url>
   </scm>
 
@@ -72,7 +72,7 @@
     <surefire-plugin.version>3.5.5</surefire-plugin.version>
     <version.javadoc.plugin>3.12.0</version.javadoc.plugin>
     <version.source.plugin>3.4.0</version.source.plugin>
-    <tagSuffix/>
+    <tagSuffix />
   </properties>
 
   <dependencyManagement>
@@ -160,7 +160,7 @@
             </sortPom>
           </pom>
           <java>
-            <removeUnusedImports/>
+            <removeUnusedImports />
             <importOrder>
               <file>java-import-order.txt</file>
             </importOrder>
